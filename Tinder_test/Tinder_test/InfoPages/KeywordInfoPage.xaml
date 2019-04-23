@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view ="clr-namespace:Tinder_test.View"
+             x:Class="Tinder_test.InfoPages.KeywordInfoPage"
+             Style="{StaticResource GenericPage}">
+
+    <ContentPage.Content>
+        <view:FormsBlurView>
+            <view:ScaleLabel Style="{StaticResource InfoTitleLabel}" 
+                            Text="Search for a keyword"
+                            NamedFontSized="Large" FontSizeFactor="3" 
+                            HorizontalOptions="Center" VerticalOptions="Center"
+                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                             Margin="5,20,5,5"/>
+
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Entry x:Name="user_entry"
+                        Placeholder="Keyword..." 
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource InfoEntry}"
+                        ReturnType="Done"
+                        Scale="2"
+                        Completed="Entry_Completed"
+                        AbsoluteLayout.LayoutBounds="0.5,0.45"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton Style="{StaticResource TickButton}"
+                                AbsoluteLayout.LayoutBounds="1,1,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"
+                                Clicked="BackButton_Clicked"/>
+            </AbsoluteLayout>
+        </view:FormsBlurView>
+    </ContentPage.Content>
+</ContentPage>

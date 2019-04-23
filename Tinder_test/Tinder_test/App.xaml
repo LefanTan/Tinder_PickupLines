@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tinder_test.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Fonts-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="NorthingFont">
+                <On Platform="Android" Value="Northingtown.ttf#Northingtown"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LegilatureFont">
+                <On Platform="Android" Value="Legilature.otf#LegilatureFree"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BulgareFont">
+                <On Platform="Android" Value="Bulgare.otf#BULGARE"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="ZowieFont">
+                <On Platform="Android" Value="Zowieyoe.otf#Zowieyoe"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="PsychoFont">
+                <On Platform="Android" Value="Psychopat.otf#PSYCHOPAT"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LaGildaFont">
+                <On Platform="Android" Value="LaGilda.otf#La Gilda"/>
+            </OnPlatform>
+
+            <Style x:Key="GenericPage" TargetType="Page">
+                <Setter Property="BackgroundImage" Value="background.jpg"/>
+                <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
+            </Style>
+            <Style x:Key="InfoButton" TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource BulgareFont}"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+            <Style x:Key="SelectorButton" TargetType="Button" BasedOn="{StaticResource InfoButton}">
+                <Setter Property="Style" Value="{StaticResource InfoButton}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="InfoTitleLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource LaGildaFont}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="InfoLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource BulgareFont}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="InfoEntry" TargetType="Entry">
+                <Setter Property="FontFamily" Value="{StaticResource BulgareFont}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="ReturnType" Value="Done"/>
+                <Setter Property="Keyboard" Value="Text"/>
+                <Setter Property="PlaceholderColor" Value="LightGray"/>
+            </Style>
+            <Style x:Key="TickButton" TargetType="ImageButton">
+                <Setter Property="Source" Value="tick_normal.png"/>
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Source" Value="tick_normal.png"/>
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Source" Value="tick_pressed.png"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

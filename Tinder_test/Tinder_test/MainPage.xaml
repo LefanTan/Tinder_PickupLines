@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tinder_test.View"
+             x:Class="Tinder_test.MainPage"
+             BackgroundImage="background.jpg">
+    <local:FormsBlurView>
+        <ListView x:Name="content">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="{Binding Personality}" HorizontalOptions="Start" TextColor="White"/>
+                            <Label Text="{Binding Name}" HorizontalOptions="End" TextColor="White"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </local:FormsBlurView>
+
+</ContentPage>

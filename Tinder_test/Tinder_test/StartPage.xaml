@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tinder_test.View"
+             x:Class="Tinder_test.StartPage"
+             Style="{StaticResource GenericPage}">
+    <ContentPage.Content>
+        <local:FormsBlurView>
+            <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="title.png" Aspect="AspectFit" 
+                   AbsoluteLayout.LayoutBounds="0,0" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <Button x:Name="StartButton"             
+                    Text="Start"
+                    Style="{StaticResource InfoButton}"
+                    Clicked="Button_Clicked"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5,0.3,0.3,0.1"/>
+            </AbsoluteLayout>
+        </local:FormsBlurView>
+    </ContentPage.Content>
+</ContentPage>
