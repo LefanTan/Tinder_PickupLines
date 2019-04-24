@@ -39,9 +39,7 @@ namespace Tinder_test{
         //return a list of filtered lines
         private ObservableCollection<PickupLine> GetFilteredLines() {
             var db = DependencyService.Get<IDBInterface>().CreateConnection("PickupDB.db");
-
-            System.Diagnostics.Debug.WriteLine("DB:    " + db.Get<PickupLine>(2).Line);
-
+            //System.Diagnostics.Debug.WriteLine("DB:    " + db.Get<PickupLine>(2).Line);
             string fileContent = DependencyService.Get<IFileService>().ReadFileFromAssets(FileNames.Lines_data);
             var data = JsonConvert.DeserializeObject<List<PickupLine>>(fileContent);
             ObservableCollection<PickupLine> lines = new ObservableCollection<PickupLine>(data);
