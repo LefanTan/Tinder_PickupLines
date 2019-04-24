@@ -39,20 +39,18 @@ namespace Tinder_test{
         //return a list of filtered lines
         private ObservableCollection<PickupLine> GetFilteredLines() {
             var db = DependencyService.Get<IDBInterface>().CreateConnection("PickupDB.db");
-            //System.Diagnostics.Debug.WriteLine("DB:    " + db.Get<PickupLine>(2).Line);
-            string fileContent = DependencyService.Get<IFileService>().ReadFileFromAssets(FileNames.Lines_data);
-            var data = JsonConvert.DeserializeObject<List<PickupLine>>(fileContent);
-            ObservableCollection<PickupLine> lines = new ObservableCollection<PickupLine>(data);
+
+            ObservableCollection<PickupLine> lines = new ObservableCollection<PickupLine>(db.Query<PickupLine>("Select Line from PickupLine"));
 
             //filtering through name, more filter method can be added
-            lines = FilterShow(lines);
-            lines = FilterKeyword(lines);
+            lines = FilterShow(lines, db);
+            lines = FilterKeyword(lines, db);
 
             return lines;
         }
 
 
-        private ObservableCollection<PickupLine> FilterKeyword(ObservableCollection<PickupLine> lines) {
+        private ObservableCollection<PickupLine> FilterKeyword(ObservableCollection<PickupLine> lines, SQLiteConnection db) {
             ObservableCollection<PickupLine> result;
 
             //if lineobj is null(user data is empty) or lineObj's name is empty,
@@ -69,14 +67,13 @@ namespace Tinder_test{
         /**
          * Filter Shows as follows: lines related will only show if the show is selected
          **/
-        private ObservableCollection<PickupLine> FilterShow(ObservableCollection<PickupLine> lines) {
+        private ObservableCollection<PickupLine> FilterShow(ObservableCollection<PickupLine> lines, SQLiteConnection db) {
             ObservableCollection<PickupLine> result;
 
             //implement personality algorithm
             if(lineObj != null && !string.IsNullOrWhiteSpace(lineObj.Shows)) {
-                string[] userPersonality = lineObj.Shows.Split(',');
+               // string[] userPersonality = lineObj.Shows.Split(',');
                 result = new ObservableCollection<PickupLine>( lines.Where(x => lineObj.Shows.Contains(x.Shows.Replace(",","")) ) );
-
             } else {
                 result = lines;
             }
