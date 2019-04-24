@@ -43,8 +43,6 @@ namespace Tinder_test.Droid {
         }
 
         public void SaveFile(string fileName, string content) {
-            AssetManager assets = Android.App.Application.Context.Assets;
-
             var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string completePath = Path.Combine(path, fileName);
 
